@@ -1,0 +1,10 @@
+{
+  "rugbynistere": {
+      "url": "https://www.lerugbynistere.fr/",
+      "class_name": "title"
+  },
+  "rugbyrama": {
+    "url": "https://rugbyrama.com",
+    "class_name": "article-link"
+  }
+}
