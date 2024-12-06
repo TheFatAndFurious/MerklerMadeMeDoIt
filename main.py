@@ -1,31 +1,31 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+# Set up the WebDriver
 driver = webdriver.Firefox()
 
 try:
-    url = "https://www.lerugbynistere.fr/"
+    # Open the target website
+    url = "https://www.lerugbynistere.fr/"  # Replace with your target website
     driver.get(url)
 
-    headlines = driver.find_elements(By.TAG_NAME, "h2")
+    # Define your keywords
+    keywords = ["toulouse", "toulousain"]
 
-    keywords = ["toulousain", "toulouse", "dupont"]
+    # Find all <h2> elements
+    h2_elements = driver.find_elements(By.CLASS_NAME, "title")
 
-    filteredResults = []
-    for result in headlines:
+    # Filter and get href of parent <a> tags
+    results = []
+    for result in h2_elements:
         if any(keyword.lower() in result.text.lower() for keyword in keywords):
-            filteredResults.append(result)
-finally:
-    for idy, headlineTest in enumerate(headlines, start=1):
-        print(f" coucou {idy}: {headlineTest.parent}")
+            results.append(result)
 
-    # results = []
-    #
-    # for headline in filteredResults:
-    #     parent = headline.find_element(By.XPATH, './ancestor::a[@href]')
-    #     href = parent.get_attribute("href")
-    #     results.append((headline.text, href))
-    #
-    # for idx, (text, link) in enumerate(results, start=1):
-    #     print(f"{idx}: {text} -> {link}")
+
+    # Print the results
+    for idx, element in enumerate(results, start=1):
+        print(f"{idx}: {element.text} -> {element.get_attribute("href")}")
+
+finally:
+    # Close the WebDriver
     driver.quit()
