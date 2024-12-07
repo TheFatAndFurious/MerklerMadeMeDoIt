@@ -1,12 +1,14 @@
 {
   "rugbynistere": {
       "url": "https://www.lerugbynistere.fr/",
-      "class_name": "title",
-      "link_element": "href"
+      "class_name": "title"
   },
   "rugbyrama": {
       "url": "https://rugbyrama.fr",
-      "class_name": "article-link",
-      "link_element": "href"
+      "class_name": "article-link"
+  },
+  "rugby-prime": {
+    "url": "https://rugbyprime.com/",
+    "class_name": "entry-title"
   }
 }
